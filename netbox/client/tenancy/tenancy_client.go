@@ -53,7 +53,7 @@ func (a *Client) TenancyChoicesList(params *TenancyChoicesListParams, authInfo r
 		PathPattern:        "/tenancy/_choices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyChoicesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -82,7 +82,7 @@ func (a *Client) TenancyChoicesRead(params *TenancyChoicesReadParams, authInfo r
 		PathPattern:        "/tenancy/_choices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyChoicesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -111,7 +111,7 @@ func (a *Client) TenancyTenantGroupsCreate(params *TenancyTenantGroupsCreatePara
 		PathPattern:        "/tenancy/tenant-groups/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -140,7 +140,7 @@ func (a *Client) TenancyTenantGroupsDelete(params *TenancyTenantGroupsDeletePara
 		PathPattern:        "/tenancy/tenant-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -155,7 +155,7 @@ func (a *Client) TenancyTenantGroupsDelete(params *TenancyTenantGroupsDeletePara
 }
 
 /*
-TenancyTenantGroupsList tenancy tenant groups list API
+TenancyTenantGroupsList Call to super to allow for caching
 */
 func (a *Client) TenancyTenantGroupsList(params *TenancyTenantGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantGroupsListOK, error) {
 	// TODO: Validate the params before sending
@@ -169,7 +169,7 @@ func (a *Client) TenancyTenantGroupsList(params *TenancyTenantGroupsListParams, 
 		PathPattern:        "/tenancy/tenant-groups/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -198,7 +198,7 @@ func (a *Client) TenancyTenantGroupsPartialUpdate(params *TenancyTenantGroupsPar
 		PathPattern:        "/tenancy/tenant-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -213,7 +213,7 @@ func (a *Client) TenancyTenantGroupsPartialUpdate(params *TenancyTenantGroupsPar
 }
 
 /*
-TenancyTenantGroupsRead tenancy tenant groups read API
+TenancyTenantGroupsRead Call to super to allow for caching
 */
 func (a *Client) TenancyTenantGroupsRead(params *TenancyTenantGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantGroupsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -227,7 +227,7 @@ func (a *Client) TenancyTenantGroupsRead(params *TenancyTenantGroupsReadParams, 
 		PathPattern:        "/tenancy/tenant-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -256,7 +256,7 @@ func (a *Client) TenancyTenantGroupsUpdate(params *TenancyTenantGroupsUpdatePara
 		PathPattern:        "/tenancy/tenant-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantGroupsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -285,7 +285,7 @@ func (a *Client) TenancyTenantsCreate(params *TenancyTenantsCreateParams, authIn
 		PathPattern:        "/tenancy/tenants/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -314,7 +314,7 @@ func (a *Client) TenancyTenantsDelete(params *TenancyTenantsDeleteParams, authIn
 		PathPattern:        "/tenancy/tenants/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -329,7 +329,7 @@ func (a *Client) TenancyTenantsDelete(params *TenancyTenantsDeleteParams, authIn
 }
 
 /*
-TenancyTenantsList tenancy tenants list API
+TenancyTenantsList Call to super to allow for caching
 */
 func (a *Client) TenancyTenantsList(params *TenancyTenantsListParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantsListOK, error) {
 	// TODO: Validate the params before sending
@@ -343,7 +343,7 @@ func (a *Client) TenancyTenantsList(params *TenancyTenantsListParams, authInfo r
 		PathPattern:        "/tenancy/tenants/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -372,7 +372,7 @@ func (a *Client) TenancyTenantsPartialUpdate(params *TenancyTenantsPartialUpdate
 		PathPattern:        "/tenancy/tenants/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -387,7 +387,7 @@ func (a *Client) TenancyTenantsPartialUpdate(params *TenancyTenantsPartialUpdate
 }
 
 /*
-TenancyTenantsRead tenancy tenants read API
+TenancyTenantsRead Call to super to allow for caching
 */
 func (a *Client) TenancyTenantsRead(params *TenancyTenantsReadParams, authInfo runtime.ClientAuthInfoWriter) (*TenancyTenantsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -401,7 +401,7 @@ func (a *Client) TenancyTenantsRead(params *TenancyTenantsReadParams, authInfo r
 		PathPattern:        "/tenancy/tenants/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -430,7 +430,7 @@ func (a *Client) TenancyTenantsUpdate(params *TenancyTenantsUpdateParams, authIn
 		PathPattern:        "/tenancy/tenants/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &TenancyTenantsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,

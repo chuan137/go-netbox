@@ -20,10 +20,9 @@ package circuits
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"net/http"
 	"time"
-
-	"golang.org/x/net/context"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
@@ -80,7 +79,7 @@ type CircuitsCircuitsListParams struct {
 	/*Cid*/
 	Cid *string
 	/*CommitRate*/
-	CommitRate *float64
+	CommitRate *string
 	/*IDIn
 	  Multiple values may be separated by commas.
 
@@ -110,8 +109,14 @@ type CircuitsCircuitsListParams struct {
 	SiteID *string
 	/*Status*/
 	Status *string
+	/*Tag*/
+	Tag *string
 	/*Tenant*/
 	Tenant *string
+	/*TenantGroup*/
+	TenantGroup *string
+	/*TenantGroupID*/
+	TenantGroupID *string
 	/*TenantID*/
 	TenantID *string
 	/*Type*/
@@ -169,13 +174,13 @@ func (o *CircuitsCircuitsListParams) SetCid(cid *string) {
 }
 
 // WithCommitRate adds the commitRate to the circuits circuits list params
-func (o *CircuitsCircuitsListParams) WithCommitRate(commitRate *float64) *CircuitsCircuitsListParams {
+func (o *CircuitsCircuitsListParams) WithCommitRate(commitRate *string) *CircuitsCircuitsListParams {
 	o.SetCommitRate(commitRate)
 	return o
 }
 
 // SetCommitRate adds the commitRate to the circuits circuits list params
-func (o *CircuitsCircuitsListParams) SetCommitRate(commitRate *float64) {
+func (o *CircuitsCircuitsListParams) SetCommitRate(commitRate *string) {
 	o.CommitRate = commitRate
 }
 
@@ -289,6 +294,17 @@ func (o *CircuitsCircuitsListParams) SetStatus(status *string) {
 	o.Status = status
 }
 
+// WithTag adds the tag to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithTag(tag *string) *CircuitsCircuitsListParams {
+	o.SetTag(tag)
+	return o
+}
+
+// SetTag adds the tag to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetTag(tag *string) {
+	o.Tag = tag
+}
+
 // WithTenant adds the tenant to the circuits circuits list params
 func (o *CircuitsCircuitsListParams) WithTenant(tenant *string) *CircuitsCircuitsListParams {
 	o.SetTenant(tenant)
@@ -298,6 +314,28 @@ func (o *CircuitsCircuitsListParams) WithTenant(tenant *string) *CircuitsCircuit
 // SetTenant adds the tenant to the circuits circuits list params
 func (o *CircuitsCircuitsListParams) SetTenant(tenant *string) {
 	o.Tenant = tenant
+}
+
+// WithTenantGroup adds the tenantGroup to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithTenantGroup(tenantGroup *string) *CircuitsCircuitsListParams {
+	o.SetTenantGroup(tenantGroup)
+	return o
+}
+
+// SetTenantGroup adds the tenantGroup to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetTenantGroup(tenantGroup *string) {
+	o.TenantGroup = tenantGroup
+}
+
+// WithTenantGroupID adds the tenantGroupID to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithTenantGroupID(tenantGroupID *string) *CircuitsCircuitsListParams {
+	o.SetTenantGroupID(tenantGroupID)
+	return o
+}
+
+// SetTenantGroupID adds the tenantGroupId to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetTenantGroupID(tenantGroupID *string) {
+	o.TenantGroupID = tenantGroupID
 }
 
 // WithTenantID adds the tenantID to the circuits circuits list params
@@ -360,11 +398,11 @@ func (o *CircuitsCircuitsListParams) WriteToRequest(r runtime.ClientRequest, reg
 	if o.CommitRate != nil {
 
 		// query param commit_rate
-		var qrCommitRate float64
+		var qrCommitRate string
 		if o.CommitRate != nil {
 			qrCommitRate = *o.CommitRate
 		}
-		qCommitRate := swag.FormatFloat64(qrCommitRate)
+		qCommitRate := qrCommitRate
 		if qCommitRate != "" {
 			if err := r.SetQueryParam("commit_rate", qCommitRate); err != nil {
 				return err
@@ -533,6 +571,22 @@ func (o *CircuitsCircuitsListParams) WriteToRequest(r runtime.ClientRequest, reg
 
 	}
 
+	if o.Tag != nil {
+
+		// query param tag
+		var qrTag string
+		if o.Tag != nil {
+			qrTag = *o.Tag
+		}
+		qTag := qrTag
+		if qTag != "" {
+			if err := r.SetQueryParam("tag", qTag); err != nil {
+				return err
+			}
+		}
+
+	}
+
 	if o.Tenant != nil {
 
 		// query param tenant
@@ -543,6 +597,38 @@ func (o *CircuitsCircuitsListParams) WriteToRequest(r runtime.ClientRequest, reg
 		qTenant := qrTenant
 		if qTenant != "" {
 			if err := r.SetQueryParam("tenant", qTenant); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.TenantGroup != nil {
+
+		// query param tenant_group
+		var qrTenantGroup string
+		if o.TenantGroup != nil {
+			qrTenantGroup = *o.TenantGroup
+		}
+		qTenantGroup := qrTenantGroup
+		if qTenantGroup != "" {
+			if err := r.SetQueryParam("tenant_group", qTenantGroup); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.TenantGroupID != nil {
+
+		// query param tenant_group_id
+		var qrTenantGroupID string
+		if o.TenantGroupID != nil {
+			qrTenantGroupID = *o.TenantGroupID
+		}
+		qTenantGroupID := qrTenantGroupID
+		if qTenantGroupID != "" {
+			if err := r.SetQueryParam("tenant_group_id", qTenantGroupID); err != nil {
 				return err
 			}
 		}

@@ -53,7 +53,7 @@ func (a *Client) CircuitsChoicesList(params *CircuitsChoicesListParams, authInfo
 		PathPattern:        "/circuits/_choices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsChoicesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -82,7 +82,7 @@ func (a *Client) CircuitsChoicesRead(params *CircuitsChoicesReadParams, authInfo
 		PathPattern:        "/circuits/_choices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsChoicesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -111,7 +111,7 @@ func (a *Client) CircuitsCircuitTerminationsCreate(params *CircuitsCircuitTermin
 		PathPattern:        "/circuits/circuit-terminations/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -140,7 +140,7 @@ func (a *Client) CircuitsCircuitTerminationsDelete(params *CircuitsCircuitTermin
 		PathPattern:        "/circuits/circuit-terminations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -155,7 +155,7 @@ func (a *Client) CircuitsCircuitTerminationsDelete(params *CircuitsCircuitTermin
 }
 
 /*
-CircuitsCircuitTerminationsList circuits circuit terminations list API
+CircuitsCircuitTerminationsList Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitTerminationsList(params *CircuitsCircuitTerminationsListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTerminationsListOK, error) {
 	// TODO: Validate the params before sending
@@ -169,7 +169,7 @@ func (a *Client) CircuitsCircuitTerminationsList(params *CircuitsCircuitTerminat
 		PathPattern:        "/circuits/circuit-terminations/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -198,7 +198,7 @@ func (a *Client) CircuitsCircuitTerminationsPartialUpdate(params *CircuitsCircui
 		PathPattern:        "/circuits/circuit-terminations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -213,7 +213,7 @@ func (a *Client) CircuitsCircuitTerminationsPartialUpdate(params *CircuitsCircui
 }
 
 /*
-CircuitsCircuitTerminationsRead circuits circuit terminations read API
+CircuitsCircuitTerminationsRead Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitTerminationsRead(params *CircuitsCircuitTerminationsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTerminationsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -227,7 +227,7 @@ func (a *Client) CircuitsCircuitTerminationsRead(params *CircuitsCircuitTerminat
 		PathPattern:        "/circuits/circuit-terminations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -256,7 +256,7 @@ func (a *Client) CircuitsCircuitTerminationsUpdate(params *CircuitsCircuitTermin
 		PathPattern:        "/circuits/circuit-terminations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTerminationsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -285,7 +285,7 @@ func (a *Client) CircuitsCircuitTypesCreate(params *CircuitsCircuitTypesCreatePa
 		PathPattern:        "/circuits/circuit-types/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -314,7 +314,7 @@ func (a *Client) CircuitsCircuitTypesDelete(params *CircuitsCircuitTypesDeletePa
 		PathPattern:        "/circuits/circuit-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -329,7 +329,7 @@ func (a *Client) CircuitsCircuitTypesDelete(params *CircuitsCircuitTypesDeletePa
 }
 
 /*
-CircuitsCircuitTypesList circuits circuit types list API
+CircuitsCircuitTypesList Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitTypesList(params *CircuitsCircuitTypesListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTypesListOK, error) {
 	// TODO: Validate the params before sending
@@ -343,7 +343,7 @@ func (a *Client) CircuitsCircuitTypesList(params *CircuitsCircuitTypesListParams
 		PathPattern:        "/circuits/circuit-types/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -372,7 +372,7 @@ func (a *Client) CircuitsCircuitTypesPartialUpdate(params *CircuitsCircuitTypesP
 		PathPattern:        "/circuits/circuit-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -387,7 +387,7 @@ func (a *Client) CircuitsCircuitTypesPartialUpdate(params *CircuitsCircuitTypesP
 }
 
 /*
-CircuitsCircuitTypesRead circuits circuit types read API
+CircuitsCircuitTypesRead Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitTypesRead(params *CircuitsCircuitTypesReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitTypesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -401,7 +401,7 @@ func (a *Client) CircuitsCircuitTypesRead(params *CircuitsCircuitTypesReadParams
 		PathPattern:        "/circuits/circuit-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -430,7 +430,7 @@ func (a *Client) CircuitsCircuitTypesUpdate(params *CircuitsCircuitTypesUpdatePa
 		PathPattern:        "/circuits/circuit-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitTypesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -459,7 +459,7 @@ func (a *Client) CircuitsCircuitsCreate(params *CircuitsCircuitsCreateParams, au
 		PathPattern:        "/circuits/circuits/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -488,7 +488,7 @@ func (a *Client) CircuitsCircuitsDelete(params *CircuitsCircuitsDeleteParams, au
 		PathPattern:        "/circuits/circuits/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -503,7 +503,7 @@ func (a *Client) CircuitsCircuitsDelete(params *CircuitsCircuitsDeleteParams, au
 }
 
 /*
-CircuitsCircuitsList circuits circuits list API
+CircuitsCircuitsList Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitsList(params *CircuitsCircuitsListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitsListOK, error) {
 	// TODO: Validate the params before sending
@@ -517,7 +517,7 @@ func (a *Client) CircuitsCircuitsList(params *CircuitsCircuitsListParams, authIn
 		PathPattern:        "/circuits/circuits/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -546,7 +546,7 @@ func (a *Client) CircuitsCircuitsPartialUpdate(params *CircuitsCircuitsPartialUp
 		PathPattern:        "/circuits/circuits/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -561,7 +561,7 @@ func (a *Client) CircuitsCircuitsPartialUpdate(params *CircuitsCircuitsPartialUp
 }
 
 /*
-CircuitsCircuitsRead circuits circuits read API
+CircuitsCircuitsRead Call to super to allow for caching
 */
 func (a *Client) CircuitsCircuitsRead(params *CircuitsCircuitsReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsCircuitsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -575,7 +575,7 @@ func (a *Client) CircuitsCircuitsRead(params *CircuitsCircuitsReadParams, authIn
 		PathPattern:        "/circuits/circuits/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -604,7 +604,7 @@ func (a *Client) CircuitsCircuitsUpdate(params *CircuitsCircuitsUpdateParams, au
 		PathPattern:        "/circuits/circuits/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsCircuitsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -633,7 +633,7 @@ func (a *Client) CircuitsProvidersCreate(params *CircuitsProvidersCreateParams, 
 		PathPattern:        "/circuits/providers/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -662,7 +662,7 @@ func (a *Client) CircuitsProvidersDelete(params *CircuitsProvidersDeleteParams, 
 		PathPattern:        "/circuits/providers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -691,7 +691,7 @@ func (a *Client) CircuitsProvidersGraphs(params *CircuitsProvidersGraphsParams, 
 		PathPattern:        "/circuits/providers/{id}/graphs/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersGraphsReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -706,7 +706,7 @@ func (a *Client) CircuitsProvidersGraphs(params *CircuitsProvidersGraphsParams, 
 }
 
 /*
-CircuitsProvidersList circuits providers list API
+CircuitsProvidersList Call to super to allow for caching
 */
 func (a *Client) CircuitsProvidersList(params *CircuitsProvidersListParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsProvidersListOK, error) {
 	// TODO: Validate the params before sending
@@ -720,7 +720,7 @@ func (a *Client) CircuitsProvidersList(params *CircuitsProvidersListParams, auth
 		PathPattern:        "/circuits/providers/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -749,7 +749,7 @@ func (a *Client) CircuitsProvidersPartialUpdate(params *CircuitsProvidersPartial
 		PathPattern:        "/circuits/providers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -764,7 +764,7 @@ func (a *Client) CircuitsProvidersPartialUpdate(params *CircuitsProvidersPartial
 }
 
 /*
-CircuitsProvidersRead circuits providers read API
+CircuitsProvidersRead Call to super to allow for caching
 */
 func (a *Client) CircuitsProvidersRead(params *CircuitsProvidersReadParams, authInfo runtime.ClientAuthInfoWriter) (*CircuitsProvidersReadOK, error) {
 	// TODO: Validate the params before sending
@@ -778,7 +778,7 @@ func (a *Client) CircuitsProvidersRead(params *CircuitsProvidersReadParams, auth
 		PathPattern:        "/circuits/providers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -807,7 +807,7 @@ func (a *Client) CircuitsProvidersUpdate(params *CircuitsProvidersUpdateParams, 
 		PathPattern:        "/circuits/providers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &CircuitsProvidersUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,

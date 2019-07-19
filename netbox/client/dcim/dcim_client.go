@@ -53,7 +53,7 @@ func (a *Client) DcimChoicesList(params *DcimChoicesListParams, authInfo runtime
 		PathPattern:        "/dcim/_choices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimChoicesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -82,7 +82,7 @@ func (a *Client) DcimChoicesRead(params *DcimChoicesReadParams, authInfo runtime
 		PathPattern:        "/dcim/_choices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimChoicesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -97,12 +97,186 @@ func (a *Client) DcimChoicesRead(params *DcimChoicesReadParams, authInfo runtime
 }
 
 /*
+DcimCablesCreate dcim cables create API
+*/
+func (a *Client) DcimCablesCreate(params *DcimCablesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/cables/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesCreateCreated), nil
+
+}
+
+/*
+DcimCablesDelete dcim cables delete API
+*/
+func (a *Client) DcimCablesDelete(params *DcimCablesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/cables/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesDeleteNoContent), nil
+
+}
+
+/*
+DcimCablesList Call to super to allow for caching
+*/
+func (a *Client) DcimCablesList(params *DcimCablesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/cables/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesListOK), nil
+
+}
+
+/*
+DcimCablesPartialUpdate dcim cables partial update API
+*/
+func (a *Client) DcimCablesPartialUpdate(params *DcimCablesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/cables/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesPartialUpdateOK), nil
+
+}
+
+/*
+DcimCablesRead Call to super to allow for caching
+*/
+func (a *Client) DcimCablesRead(params *DcimCablesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/cables/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesReadOK), nil
+
+}
+
+/*
+DcimCablesUpdate dcim cables update API
+*/
+func (a *Client) DcimCablesUpdate(params *DcimCablesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimCablesUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_cables_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/cables/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimCablesUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimCablesUpdateOK), nil
+
+}
+
+/*
 DcimConnectedDeviceList This endpoint allows a user to determine what device (if any) is connected to a given peer device and peer
 interface. This is useful in a situation where a device boots with no configuration, but can detect its neighbors
 via a protocol such as LLDP. Two query parameters must be included in the request:
 
-* `peer-device`: The name of the peer device
-* `peer-interface`: The name of the peer interface
+* `peer_device`: The name of the peer device
+* `peer_interface`: The name of the peer interface
 */
 func (a *Client) DcimConnectedDeviceList(params *DcimConnectedDeviceListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConnectedDeviceListOK, error) {
 	// TODO: Validate the params before sending
@@ -116,7 +290,7 @@ func (a *Client) DcimConnectedDeviceList(params *DcimConnectedDeviceListParams, 
 		PathPattern:        "/dcim/connected-device/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConnectedDeviceListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -145,7 +319,7 @@ func (a *Client) DcimConsoleConnectionsList(params *DcimConsoleConnectionsListPa
 		PathPattern:        "/dcim/console-connections/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleConnectionsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -174,7 +348,7 @@ func (a *Client) DcimConsolePortTemplatesCreate(params *DcimConsolePortTemplates
 		PathPattern:        "/dcim/console-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -203,7 +377,7 @@ func (a *Client) DcimConsolePortTemplatesDelete(params *DcimConsolePortTemplates
 		PathPattern:        "/dcim/console-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -218,7 +392,7 @@ func (a *Client) DcimConsolePortTemplatesDelete(params *DcimConsolePortTemplates
 }
 
 /*
-DcimConsolePortTemplatesList dcim console port templates list API
+DcimConsolePortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortTemplatesList(params *DcimConsolePortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +406,7 @@ func (a *Client) DcimConsolePortTemplatesList(params *DcimConsolePortTemplatesLi
 		PathPattern:        "/dcim/console-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -261,7 +435,7 @@ func (a *Client) DcimConsolePortTemplatesPartialUpdate(params *DcimConsolePortTe
 		PathPattern:        "/dcim/console-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -276,7 +450,7 @@ func (a *Client) DcimConsolePortTemplatesPartialUpdate(params *DcimConsolePortTe
 }
 
 /*
-DcimConsolePortTemplatesRead dcim console port templates read API
+DcimConsolePortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortTemplatesRead(params *DcimConsolePortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -290,7 +464,7 @@ func (a *Client) DcimConsolePortTemplatesRead(params *DcimConsolePortTemplatesRe
 		PathPattern:        "/dcim/console-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -319,7 +493,7 @@ func (a *Client) DcimConsolePortTemplatesUpdate(params *DcimConsolePortTemplates
 		PathPattern:        "/dcim/console-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -348,7 +522,7 @@ func (a *Client) DcimConsolePortsCreate(params *DcimConsolePortsCreateParams, au
 		PathPattern:        "/dcim/console-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -377,7 +551,7 @@ func (a *Client) DcimConsolePortsDelete(params *DcimConsolePortsDeleteParams, au
 		PathPattern:        "/dcim/console-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -392,7 +566,7 @@ func (a *Client) DcimConsolePortsDelete(params *DcimConsolePortsDeleteParams, au
 }
 
 /*
-DcimConsolePortsList dcim console ports list API
+DcimConsolePortsList Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortsList(params *DcimConsolePortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -406,7 +580,7 @@ func (a *Client) DcimConsolePortsList(params *DcimConsolePortsListParams, authIn
 		PathPattern:        "/dcim/console-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -435,7 +609,7 @@ func (a *Client) DcimConsolePortsPartialUpdate(params *DcimConsolePortsPartialUp
 		PathPattern:        "/dcim/console-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -450,7 +624,7 @@ func (a *Client) DcimConsolePortsPartialUpdate(params *DcimConsolePortsPartialUp
 }
 
 /*
-DcimConsolePortsRead dcim console ports read API
+DcimConsolePortsRead Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortsRead(params *DcimConsolePortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -464,7 +638,7 @@ func (a *Client) DcimConsolePortsRead(params *DcimConsolePortsReadParams, authIn
 		PathPattern:        "/dcim/console-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -475,6 +649,35 @@ func (a *Client) DcimConsolePortsRead(params *DcimConsolePortsReadParams, authIn
 		return nil, err
 	}
 	return result.(*DcimConsolePortsReadOK), nil
+
+}
+
+/*
+DcimConsolePortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+*/
+func (a *Client) DcimConsolePortsTrace(params *DcimConsolePortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsTraceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimConsolePortsTraceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_console-ports_trace",
+		Method:             "GET",
+		PathPattern:        "/dcim/console-ports/{id}/trace/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimConsolePortsTraceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimConsolePortsTraceOK), nil
 
 }
 
@@ -493,7 +696,7 @@ func (a *Client) DcimConsolePortsUpdate(params *DcimConsolePortsUpdateParams, au
 		PathPattern:        "/dcim/console-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsolePortsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -522,7 +725,7 @@ func (a *Client) DcimConsoleServerPortTemplatesCreate(params *DcimConsoleServerP
 		PathPattern:        "/dcim/console-server-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -551,7 +754,7 @@ func (a *Client) DcimConsoleServerPortTemplatesDelete(params *DcimConsoleServerP
 		PathPattern:        "/dcim/console-server-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -566,7 +769,7 @@ func (a *Client) DcimConsoleServerPortTemplatesDelete(params *DcimConsoleServerP
 }
 
 /*
-DcimConsoleServerPortTemplatesList dcim console server port templates list API
+DcimConsoleServerPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortTemplatesList(params *DcimConsoleServerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -580,7 +783,7 @@ func (a *Client) DcimConsoleServerPortTemplatesList(params *DcimConsoleServerPor
 		PathPattern:        "/dcim/console-server-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -609,7 +812,7 @@ func (a *Client) DcimConsoleServerPortTemplatesPartialUpdate(params *DcimConsole
 		PathPattern:        "/dcim/console-server-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -624,7 +827,7 @@ func (a *Client) DcimConsoleServerPortTemplatesPartialUpdate(params *DcimConsole
 }
 
 /*
-DcimConsoleServerPortTemplatesRead dcim console server port templates read API
+DcimConsoleServerPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortTemplatesRead(params *DcimConsoleServerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -638,7 +841,7 @@ func (a *Client) DcimConsoleServerPortTemplatesRead(params *DcimConsoleServerPor
 		PathPattern:        "/dcim/console-server-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -667,7 +870,7 @@ func (a *Client) DcimConsoleServerPortTemplatesUpdate(params *DcimConsoleServerP
 		PathPattern:        "/dcim/console-server-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -696,7 +899,7 @@ func (a *Client) DcimConsoleServerPortsCreate(params *DcimConsoleServerPortsCrea
 		PathPattern:        "/dcim/console-server-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -725,7 +928,7 @@ func (a *Client) DcimConsoleServerPortsDelete(params *DcimConsoleServerPortsDele
 		PathPattern:        "/dcim/console-server-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -740,7 +943,7 @@ func (a *Client) DcimConsoleServerPortsDelete(params *DcimConsoleServerPortsDele
 }
 
 /*
-DcimConsoleServerPortsList dcim console server ports list API
+DcimConsoleServerPortsList Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortsList(params *DcimConsoleServerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -754,7 +957,7 @@ func (a *Client) DcimConsoleServerPortsList(params *DcimConsoleServerPortsListPa
 		PathPattern:        "/dcim/console-server-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -783,7 +986,7 @@ func (a *Client) DcimConsoleServerPortsPartialUpdate(params *DcimConsoleServerPo
 		PathPattern:        "/dcim/console-server-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -798,7 +1001,7 @@ func (a *Client) DcimConsoleServerPortsPartialUpdate(params *DcimConsoleServerPo
 }
 
 /*
-DcimConsoleServerPortsRead dcim console server ports read API
+DcimConsoleServerPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -812,7 +1015,7 @@ func (a *Client) DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadPa
 		PathPattern:        "/dcim/console-server-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -823,6 +1026,35 @@ func (a *Client) DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadPa
 		return nil, err
 	}
 	return result.(*DcimConsoleServerPortsReadOK), nil
+
+}
+
+/*
+DcimConsoleServerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+*/
+func (a *Client) DcimConsoleServerPortsTrace(params *DcimConsoleServerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsTraceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimConsoleServerPortsTraceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_console-server-ports_trace",
+		Method:             "GET",
+		PathPattern:        "/dcim/console-server-ports/{id}/trace/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimConsoleServerPortsTraceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimConsoleServerPortsTraceOK), nil
 
 }
 
@@ -841,7 +1073,7 @@ func (a *Client) DcimConsoleServerPortsUpdate(params *DcimConsoleServerPortsUpda
 		PathPattern:        "/dcim/console-server-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimConsoleServerPortsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -870,7 +1102,7 @@ func (a *Client) DcimDeviceBayTemplatesCreate(params *DcimDeviceBayTemplatesCrea
 		PathPattern:        "/dcim/device-bay-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -899,7 +1131,7 @@ func (a *Client) DcimDeviceBayTemplatesDelete(params *DcimDeviceBayTemplatesDele
 		PathPattern:        "/dcim/device-bay-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -914,7 +1146,7 @@ func (a *Client) DcimDeviceBayTemplatesDelete(params *DcimDeviceBayTemplatesDele
 }
 
 /*
-DcimDeviceBayTemplatesList dcim device bay templates list API
+DcimDeviceBayTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBayTemplatesList(params *DcimDeviceBayTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -928,7 +1160,7 @@ func (a *Client) DcimDeviceBayTemplatesList(params *DcimDeviceBayTemplatesListPa
 		PathPattern:        "/dcim/device-bay-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -957,7 +1189,7 @@ func (a *Client) DcimDeviceBayTemplatesPartialUpdate(params *DcimDeviceBayTempla
 		PathPattern:        "/dcim/device-bay-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -972,7 +1204,7 @@ func (a *Client) DcimDeviceBayTemplatesPartialUpdate(params *DcimDeviceBayTempla
 }
 
 /*
-DcimDeviceBayTemplatesRead dcim device bay templates read API
+DcimDeviceBayTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBayTemplatesRead(params *DcimDeviceBayTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -986,7 +1218,7 @@ func (a *Client) DcimDeviceBayTemplatesRead(params *DcimDeviceBayTemplatesReadPa
 		PathPattern:        "/dcim/device-bay-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1015,7 +1247,7 @@ func (a *Client) DcimDeviceBayTemplatesUpdate(params *DcimDeviceBayTemplatesUpda
 		PathPattern:        "/dcim/device-bay-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBayTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1044,7 +1276,7 @@ func (a *Client) DcimDeviceBaysCreate(params *DcimDeviceBaysCreateParams, authIn
 		PathPattern:        "/dcim/device-bays/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1073,7 +1305,7 @@ func (a *Client) DcimDeviceBaysDelete(params *DcimDeviceBaysDeleteParams, authIn
 		PathPattern:        "/dcim/device-bays/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1088,7 +1320,7 @@ func (a *Client) DcimDeviceBaysDelete(params *DcimDeviceBaysDeleteParams, authIn
 }
 
 /*
-DcimDeviceBaysList dcim device bays list API
+DcimDeviceBaysList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBaysList(params *DcimDeviceBaysListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysListOK, error) {
 	// TODO: Validate the params before sending
@@ -1102,7 +1334,7 @@ func (a *Client) DcimDeviceBaysList(params *DcimDeviceBaysListParams, authInfo r
 		PathPattern:        "/dcim/device-bays/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1131,7 +1363,7 @@ func (a *Client) DcimDeviceBaysPartialUpdate(params *DcimDeviceBaysPartialUpdate
 		PathPattern:        "/dcim/device-bays/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1146,7 +1378,7 @@ func (a *Client) DcimDeviceBaysPartialUpdate(params *DcimDeviceBaysPartialUpdate
 }
 
 /*
-DcimDeviceBaysRead dcim device bays read API
+DcimDeviceBaysRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBaysRead(params *DcimDeviceBaysReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1160,7 +1392,7 @@ func (a *Client) DcimDeviceBaysRead(params *DcimDeviceBaysReadParams, authInfo r
 		PathPattern:        "/dcim/device-bays/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1189,7 +1421,7 @@ func (a *Client) DcimDeviceBaysUpdate(params *DcimDeviceBaysUpdateParams, authIn
 		PathPattern:        "/dcim/device-bays/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceBaysUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1218,7 +1450,7 @@ func (a *Client) DcimDeviceRolesCreate(params *DcimDeviceRolesCreateParams, auth
 		PathPattern:        "/dcim/device-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1247,7 +1479,7 @@ func (a *Client) DcimDeviceRolesDelete(params *DcimDeviceRolesDeleteParams, auth
 		PathPattern:        "/dcim/device-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1262,7 +1494,7 @@ func (a *Client) DcimDeviceRolesDelete(params *DcimDeviceRolesDeleteParams, auth
 }
 
 /*
-DcimDeviceRolesList dcim device roles list API
+DcimDeviceRolesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceRolesList(params *DcimDeviceRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1276,7 +1508,7 @@ func (a *Client) DcimDeviceRolesList(params *DcimDeviceRolesListParams, authInfo
 		PathPattern:        "/dcim/device-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1305,7 +1537,7 @@ func (a *Client) DcimDeviceRolesPartialUpdate(params *DcimDeviceRolesPartialUpda
 		PathPattern:        "/dcim/device-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1320,7 +1552,7 @@ func (a *Client) DcimDeviceRolesPartialUpdate(params *DcimDeviceRolesPartialUpda
 }
 
 /*
-DcimDeviceRolesRead dcim device roles read API
+DcimDeviceRolesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceRolesRead(params *DcimDeviceRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1334,7 +1566,7 @@ func (a *Client) DcimDeviceRolesRead(params *DcimDeviceRolesReadParams, authInfo
 		PathPattern:        "/dcim/device-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1363,7 +1595,7 @@ func (a *Client) DcimDeviceRolesUpdate(params *DcimDeviceRolesUpdateParams, auth
 		PathPattern:        "/dcim/device-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceRolesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1392,7 +1624,7 @@ func (a *Client) DcimDeviceTypesCreate(params *DcimDeviceTypesCreateParams, auth
 		PathPattern:        "/dcim/device-types/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1421,7 +1653,7 @@ func (a *Client) DcimDeviceTypesDelete(params *DcimDeviceTypesDeleteParams, auth
 		PathPattern:        "/dcim/device-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1436,7 +1668,7 @@ func (a *Client) DcimDeviceTypesDelete(params *DcimDeviceTypesDeleteParams, auth
 }
 
 /*
-DcimDeviceTypesList dcim device types list API
+DcimDeviceTypesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceTypesList(params *DcimDeviceTypesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1450,7 +1682,7 @@ func (a *Client) DcimDeviceTypesList(params *DcimDeviceTypesListParams, authInfo
 		PathPattern:        "/dcim/device-types/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1479,7 +1711,7 @@ func (a *Client) DcimDeviceTypesPartialUpdate(params *DcimDeviceTypesPartialUpda
 		PathPattern:        "/dcim/device-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1494,7 +1726,7 @@ func (a *Client) DcimDeviceTypesPartialUpdate(params *DcimDeviceTypesPartialUpda
 }
 
 /*
-DcimDeviceTypesRead dcim device types read API
+DcimDeviceTypesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceTypesRead(params *DcimDeviceTypesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1508,7 +1740,7 @@ func (a *Client) DcimDeviceTypesRead(params *DcimDeviceTypesReadParams, authInfo
 		PathPattern:        "/dcim/device-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1537,7 +1769,7 @@ func (a *Client) DcimDeviceTypesUpdate(params *DcimDeviceTypesUpdateParams, auth
 		PathPattern:        "/dcim/device-types/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDeviceTypesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1566,7 +1798,7 @@ func (a *Client) DcimDevicesCreate(params *DcimDevicesCreateParams, authInfo run
 		PathPattern:        "/dcim/devices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1595,7 +1827,7 @@ func (a *Client) DcimDevicesDelete(params *DcimDevicesDeleteParams, authInfo run
 		PathPattern:        "/dcim/devices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1610,7 +1842,7 @@ func (a *Client) DcimDevicesDelete(params *DcimDevicesDeleteParams, authInfo run
 }
 
 /*
-DcimDevicesList dcim devices list API
+DcimDevicesList Call to super to allow for caching
 */
 func (a *Client) DcimDevicesList(params *DcimDevicesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1624,7 +1856,7 @@ func (a *Client) DcimDevicesList(params *DcimDevicesListParams, authInfo runtime
 		PathPattern:        "/dcim/devices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1653,7 +1885,7 @@ func (a *Client) DcimDevicesNapalm(params *DcimDevicesNapalmParams, authInfo run
 		PathPattern:        "/dcim/devices/{id}/napalm/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesNapalmReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1682,7 +1914,7 @@ func (a *Client) DcimDevicesPartialUpdate(params *DcimDevicesPartialUpdateParams
 		PathPattern:        "/dcim/devices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1697,7 +1929,7 @@ func (a *Client) DcimDevicesPartialUpdate(params *DcimDevicesPartialUpdateParams
 }
 
 /*
-DcimDevicesRead dcim devices read API
+DcimDevicesRead Call to super to allow for caching
 */
 func (a *Client) DcimDevicesRead(params *DcimDevicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1711,7 +1943,7 @@ func (a *Client) DcimDevicesRead(params *DcimDevicesReadParams, authInfo runtime
 		PathPattern:        "/dcim/devices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1740,7 +1972,7 @@ func (a *Client) DcimDevicesUpdate(params *DcimDevicesUpdateParams, authInfo run
 		PathPattern:        "/dcim/devices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimDevicesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1755,23 +1987,23 @@ func (a *Client) DcimDevicesUpdate(params *DcimDevicesUpdateParams, authInfo run
 }
 
 /*
-DcimInterfaceConnectionsCreate dcim interface connections create API
+DcimFrontPortTemplatesCreate dcim front port templates create API
 */
-func (a *Client) DcimInterfaceConnectionsCreate(params *DcimInterfaceConnectionsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsCreateCreated, error) {
+func (a *Client) DcimFrontPortTemplatesCreate(params *DcimFrontPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDcimInterfaceConnectionsCreateParams()
+		params = NewDcimFrontPortTemplatesCreateParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "dcim_interface-connections_create",
+		ID:                 "dcim_front-port-templates_create",
 		Method:             "POST",
-		PathPattern:        "/dcim/interface-connections/",
+		PathPattern:        "/dcim/front-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DcimInterfaceConnectionsCreateReader{formats: a.formats},
+		Reader:             &DcimFrontPortTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -1779,28 +2011,28 @@ func (a *Client) DcimInterfaceConnectionsCreate(params *DcimInterfaceConnections
 	if err != nil {
 		return nil, err
 	}
-	return result.(*DcimInterfaceConnectionsCreateCreated), nil
+	return result.(*DcimFrontPortTemplatesCreateCreated), nil
 
 }
 
 /*
-DcimInterfaceConnectionsDelete dcim interface connections delete API
+DcimFrontPortTemplatesDelete dcim front port templates delete API
 */
-func (a *Client) DcimInterfaceConnectionsDelete(params *DcimInterfaceConnectionsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsDeleteNoContent, error) {
+func (a *Client) DcimFrontPortTemplatesDelete(params *DcimFrontPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDcimInterfaceConnectionsDeleteParams()
+		params = NewDcimFrontPortTemplatesDeleteParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "dcim_interface-connections_delete",
+		ID:                 "dcim_front-port-templates_delete",
 		Method:             "DELETE",
-		PathPattern:        "/dcim/interface-connections/{id}/",
+		PathPattern:        "/dcim/front-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &DcimInterfaceConnectionsDeleteReader{formats: a.formats},
+		Reader:             &DcimFrontPortTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -1808,7 +2040,297 @@ func (a *Client) DcimInterfaceConnectionsDelete(params *DcimInterfaceConnections
 	if err != nil {
 		return nil, err
 	}
-	return result.(*DcimInterfaceConnectionsDeleteNoContent), nil
+	return result.(*DcimFrontPortTemplatesDeleteNoContent), nil
+
+}
+
+/*
+DcimFrontPortTemplatesList Call to super to allow for caching
+*/
+func (a *Client) DcimFrontPortTemplatesList(params *DcimFrontPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortTemplatesListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-port-templates_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/front-port-templates/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortTemplatesListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortTemplatesListOK), nil
+
+}
+
+/*
+DcimFrontPortTemplatesPartialUpdate dcim front port templates partial update API
+*/
+func (a *Client) DcimFrontPortTemplatesPartialUpdate(params *DcimFrontPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortTemplatesPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-port-templates_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/front-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortTemplatesPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortTemplatesPartialUpdateOK), nil
+
+}
+
+/*
+DcimFrontPortTemplatesRead Call to super to allow for caching
+*/
+func (a *Client) DcimFrontPortTemplatesRead(params *DcimFrontPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortTemplatesReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-port-templates_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/front-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortTemplatesReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortTemplatesReadOK), nil
+
+}
+
+/*
+DcimFrontPortTemplatesUpdate dcim front port templates update API
+*/
+func (a *Client) DcimFrontPortTemplatesUpdate(params *DcimFrontPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortTemplatesUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-port-templates_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/front-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortTemplatesUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortTemplatesUpdateOK), nil
+
+}
+
+/*
+DcimFrontPortsCreate dcim front ports create API
+*/
+func (a *Client) DcimFrontPortsCreate(params *DcimFrontPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/front-ports/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsCreateCreated), nil
+
+}
+
+/*
+DcimFrontPortsDelete dcim front ports delete API
+*/
+func (a *Client) DcimFrontPortsDelete(params *DcimFrontPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/front-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsDeleteNoContent), nil
+
+}
+
+/*
+DcimFrontPortsList Call to super to allow for caching
+*/
+func (a *Client) DcimFrontPortsList(params *DcimFrontPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/front-ports/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsListOK), nil
+
+}
+
+/*
+DcimFrontPortsPartialUpdate dcim front ports partial update API
+*/
+func (a *Client) DcimFrontPortsPartialUpdate(params *DcimFrontPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/front-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsPartialUpdateOK), nil
+
+}
+
+/*
+DcimFrontPortsRead Call to super to allow for caching
+*/
+func (a *Client) DcimFrontPortsRead(params *DcimFrontPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/front-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsReadOK), nil
+
+}
+
+/*
+DcimFrontPortsUpdate dcim front ports update API
+*/
+func (a *Client) DcimFrontPortsUpdate(params *DcimFrontPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimFrontPortsUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_front-ports_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/front-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimFrontPortsUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimFrontPortsUpdateOK), nil
 
 }
 
@@ -1827,7 +2349,7 @@ func (a *Client) DcimInterfaceConnectionsList(params *DcimInterfaceConnectionsLi
 		PathPattern:        "/dcim/interface-connections/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceConnectionsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1838,93 +2360,6 @@ func (a *Client) DcimInterfaceConnectionsList(params *DcimInterfaceConnectionsLi
 		return nil, err
 	}
 	return result.(*DcimInterfaceConnectionsListOK), nil
-
-}
-
-/*
-DcimInterfaceConnectionsPartialUpdate dcim interface connections partial update API
-*/
-func (a *Client) DcimInterfaceConnectionsPartialUpdate(params *DcimInterfaceConnectionsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsPartialUpdateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDcimInterfaceConnectionsPartialUpdateParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "dcim_interface-connections_partial_update",
-		Method:             "PATCH",
-		PathPattern:        "/dcim/interface-connections/{id}/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &DcimInterfaceConnectionsPartialUpdateReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DcimInterfaceConnectionsPartialUpdateOK), nil
-
-}
-
-/*
-DcimInterfaceConnectionsRead dcim interface connections read API
-*/
-func (a *Client) DcimInterfaceConnectionsRead(params *DcimInterfaceConnectionsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsReadOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDcimInterfaceConnectionsReadParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "dcim_interface-connections_read",
-		Method:             "GET",
-		PathPattern:        "/dcim/interface-connections/{id}/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &DcimInterfaceConnectionsReadReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DcimInterfaceConnectionsReadOK), nil
-
-}
-
-/*
-DcimInterfaceConnectionsUpdate dcim interface connections update API
-*/
-func (a *Client) DcimInterfaceConnectionsUpdate(params *DcimInterfaceConnectionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsUpdateOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDcimInterfaceConnectionsUpdateParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "dcim_interface-connections_update",
-		Method:             "PUT",
-		PathPattern:        "/dcim/interface-connections/{id}/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &DcimInterfaceConnectionsUpdateReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*DcimInterfaceConnectionsUpdateOK), nil
 
 }
 
@@ -1943,7 +2378,7 @@ func (a *Client) DcimInterfaceTemplatesCreate(params *DcimInterfaceTemplatesCrea
 		PathPattern:        "/dcim/interface-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1972,7 +2407,7 @@ func (a *Client) DcimInterfaceTemplatesDelete(params *DcimInterfaceTemplatesDele
 		PathPattern:        "/dcim/interface-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -1987,7 +2422,7 @@ func (a *Client) DcimInterfaceTemplatesDelete(params *DcimInterfaceTemplatesDele
 }
 
 /*
-DcimInterfaceTemplatesList dcim interface templates list API
+DcimInterfaceTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimInterfaceTemplatesList(params *DcimInterfaceTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2001,7 +2436,7 @@ func (a *Client) DcimInterfaceTemplatesList(params *DcimInterfaceTemplatesListPa
 		PathPattern:        "/dcim/interface-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2030,7 +2465,7 @@ func (a *Client) DcimInterfaceTemplatesPartialUpdate(params *DcimInterfaceTempla
 		PathPattern:        "/dcim/interface-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2045,7 +2480,7 @@ func (a *Client) DcimInterfaceTemplatesPartialUpdate(params *DcimInterfaceTempla
 }
 
 /*
-DcimInterfaceTemplatesRead dcim interface templates read API
+DcimInterfaceTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimInterfaceTemplatesRead(params *DcimInterfaceTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2059,7 +2494,7 @@ func (a *Client) DcimInterfaceTemplatesRead(params *DcimInterfaceTemplatesReadPa
 		PathPattern:        "/dcim/interface-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2088,7 +2523,7 @@ func (a *Client) DcimInterfaceTemplatesUpdate(params *DcimInterfaceTemplatesUpda
 		PathPattern:        "/dcim/interface-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfaceTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2117,7 +2552,7 @@ func (a *Client) DcimInterfacesCreate(params *DcimInterfacesCreateParams, authIn
 		PathPattern:        "/dcim/interfaces/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2146,7 +2581,7 @@ func (a *Client) DcimInterfacesDelete(params *DcimInterfacesDeleteParams, authIn
 		PathPattern:        "/dcim/interfaces/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2175,7 +2610,7 @@ func (a *Client) DcimInterfacesGraphs(params *DcimInterfacesGraphsParams, authIn
 		PathPattern:        "/dcim/interfaces/{id}/graphs/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesGraphsReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2190,7 +2625,7 @@ func (a *Client) DcimInterfacesGraphs(params *DcimInterfacesGraphsParams, authIn
 }
 
 /*
-DcimInterfacesList dcim interfaces list API
+DcimInterfacesList Call to super to allow for caching
 */
 func (a *Client) DcimInterfacesList(params *DcimInterfacesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2204,7 +2639,7 @@ func (a *Client) DcimInterfacesList(params *DcimInterfacesListParams, authInfo r
 		PathPattern:        "/dcim/interfaces/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2233,7 +2668,7 @@ func (a *Client) DcimInterfacesPartialUpdate(params *DcimInterfacesPartialUpdate
 		PathPattern:        "/dcim/interfaces/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2248,7 +2683,7 @@ func (a *Client) DcimInterfacesPartialUpdate(params *DcimInterfacesPartialUpdate
 }
 
 /*
-DcimInterfacesRead dcim interfaces read API
+DcimInterfacesRead Call to super to allow for caching
 */
 func (a *Client) DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2262,7 +2697,7 @@ func (a *Client) DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo r
 		PathPattern:        "/dcim/interfaces/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2273,6 +2708,35 @@ func (a *Client) DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo r
 		return nil, err
 	}
 	return result.(*DcimInterfacesReadOK), nil
+
+}
+
+/*
+DcimInterfacesTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+*/
+func (a *Client) DcimInterfacesTrace(params *DcimInterfacesTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesTraceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimInterfacesTraceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_interfaces_trace",
+		Method:             "GET",
+		PathPattern:        "/dcim/interfaces/{id}/trace/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimInterfacesTraceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimInterfacesTraceOK), nil
 
 }
 
@@ -2291,7 +2755,7 @@ func (a *Client) DcimInterfacesUpdate(params *DcimInterfacesUpdateParams, authIn
 		PathPattern:        "/dcim/interfaces/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInterfacesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2320,7 +2784,7 @@ func (a *Client) DcimInventoryItemsCreate(params *DcimInventoryItemsCreateParams
 		PathPattern:        "/dcim/inventory-items/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2349,7 +2813,7 @@ func (a *Client) DcimInventoryItemsDelete(params *DcimInventoryItemsDeleteParams
 		PathPattern:        "/dcim/inventory-items/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2364,7 +2828,7 @@ func (a *Client) DcimInventoryItemsDelete(params *DcimInventoryItemsDeleteParams
 }
 
 /*
-DcimInventoryItemsList dcim inventory items list API
+DcimInventoryItemsList Call to super to allow for caching
 */
 func (a *Client) DcimInventoryItemsList(params *DcimInventoryItemsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsListOK, error) {
 	// TODO: Validate the params before sending
@@ -2378,7 +2842,7 @@ func (a *Client) DcimInventoryItemsList(params *DcimInventoryItemsListParams, au
 		PathPattern:        "/dcim/inventory-items/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2407,7 +2871,7 @@ func (a *Client) DcimInventoryItemsPartialUpdate(params *DcimInventoryItemsParti
 		PathPattern:        "/dcim/inventory-items/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2422,7 +2886,7 @@ func (a *Client) DcimInventoryItemsPartialUpdate(params *DcimInventoryItemsParti
 }
 
 /*
-DcimInventoryItemsRead dcim inventory items read API
+DcimInventoryItemsRead Call to super to allow for caching
 */
 func (a *Client) DcimInventoryItemsRead(params *DcimInventoryItemsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2436,7 +2900,7 @@ func (a *Client) DcimInventoryItemsRead(params *DcimInventoryItemsReadParams, au
 		PathPattern:        "/dcim/inventory-items/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2465,7 +2929,7 @@ func (a *Client) DcimInventoryItemsUpdate(params *DcimInventoryItemsUpdateParams
 		PathPattern:        "/dcim/inventory-items/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimInventoryItemsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2494,7 +2958,7 @@ func (a *Client) DcimManufacturersCreate(params *DcimManufacturersCreateParams, 
 		PathPattern:        "/dcim/manufacturers/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2523,7 +2987,7 @@ func (a *Client) DcimManufacturersDelete(params *DcimManufacturersDeleteParams, 
 		PathPattern:        "/dcim/manufacturers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2538,7 +3002,7 @@ func (a *Client) DcimManufacturersDelete(params *DcimManufacturersDeleteParams, 
 }
 
 /*
-DcimManufacturersList dcim manufacturers list API
+DcimManufacturersList Call to super to allow for caching
 */
 func (a *Client) DcimManufacturersList(params *DcimManufacturersListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersListOK, error) {
 	// TODO: Validate the params before sending
@@ -2552,7 +3016,7 @@ func (a *Client) DcimManufacturersList(params *DcimManufacturersListParams, auth
 		PathPattern:        "/dcim/manufacturers/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2581,7 +3045,7 @@ func (a *Client) DcimManufacturersPartialUpdate(params *DcimManufacturersPartial
 		PathPattern:        "/dcim/manufacturers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2596,7 +3060,7 @@ func (a *Client) DcimManufacturersPartialUpdate(params *DcimManufacturersPartial
 }
 
 /*
-DcimManufacturersRead dcim manufacturers read API
+DcimManufacturersRead Call to super to allow for caching
 */
 func (a *Client) DcimManufacturersRead(params *DcimManufacturersReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2610,7 +3074,7 @@ func (a *Client) DcimManufacturersRead(params *DcimManufacturersReadParams, auth
 		PathPattern:        "/dcim/manufacturers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2639,7 +3103,7 @@ func (a *Client) DcimManufacturersUpdate(params *DcimManufacturersUpdateParams, 
 		PathPattern:        "/dcim/manufacturers/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimManufacturersUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2668,7 +3132,7 @@ func (a *Client) DcimPlatformsCreate(params *DcimPlatformsCreateParams, authInfo
 		PathPattern:        "/dcim/platforms/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2697,7 +3161,7 @@ func (a *Client) DcimPlatformsDelete(params *DcimPlatformsDeleteParams, authInfo
 		PathPattern:        "/dcim/platforms/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2712,7 +3176,7 @@ func (a *Client) DcimPlatformsDelete(params *DcimPlatformsDeleteParams, authInfo
 }
 
 /*
-DcimPlatformsList dcim platforms list API
+DcimPlatformsList Call to super to allow for caching
 */
 func (a *Client) DcimPlatformsList(params *DcimPlatformsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsListOK, error) {
 	// TODO: Validate the params before sending
@@ -2726,7 +3190,7 @@ func (a *Client) DcimPlatformsList(params *DcimPlatformsListParams, authInfo run
 		PathPattern:        "/dcim/platforms/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2755,7 +3219,7 @@ func (a *Client) DcimPlatformsPartialUpdate(params *DcimPlatformsPartialUpdatePa
 		PathPattern:        "/dcim/platforms/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2770,7 +3234,7 @@ func (a *Client) DcimPlatformsPartialUpdate(params *DcimPlatformsPartialUpdatePa
 }
 
 /*
-DcimPlatformsRead dcim platforms read API
+DcimPlatformsRead Call to super to allow for caching
 */
 func (a *Client) DcimPlatformsRead(params *DcimPlatformsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2784,7 +3248,7 @@ func (a *Client) DcimPlatformsRead(params *DcimPlatformsReadParams, authInfo run
 		PathPattern:        "/dcim/platforms/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2813,7 +3277,7 @@ func (a *Client) DcimPlatformsUpdate(params *DcimPlatformsUpdateParams, authInfo
 		PathPattern:        "/dcim/platforms/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPlatformsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2842,7 +3306,7 @@ func (a *Client) DcimPowerConnectionsList(params *DcimPowerConnectionsListParams
 		PathPattern:        "/dcim/power-connections/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerConnectionsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2853,6 +3317,180 @@ func (a *Client) DcimPowerConnectionsList(params *DcimPowerConnectionsListParams
 		return nil, err
 	}
 	return result.(*DcimPowerConnectionsListOK), nil
+
+}
+
+/*
+DcimPowerFeedsCreate dcim power feeds create API
+*/
+func (a *Client) DcimPowerFeedsCreate(params *DcimPowerFeedsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/power-feeds/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsCreateCreated), nil
+
+}
+
+/*
+DcimPowerFeedsDelete dcim power feeds delete API
+*/
+func (a *Client) DcimPowerFeedsDelete(params *DcimPowerFeedsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/power-feeds/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsDeleteNoContent), nil
+
+}
+
+/*
+DcimPowerFeedsList Call to super to allow for caching
+*/
+func (a *Client) DcimPowerFeedsList(params *DcimPowerFeedsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-feeds/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsListOK), nil
+
+}
+
+/*
+DcimPowerFeedsPartialUpdate dcim power feeds partial update API
+*/
+func (a *Client) DcimPowerFeedsPartialUpdate(params *DcimPowerFeedsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/power-feeds/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsPartialUpdateOK), nil
+
+}
+
+/*
+DcimPowerFeedsRead Call to super to allow for caching
+*/
+func (a *Client) DcimPowerFeedsRead(params *DcimPowerFeedsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-feeds/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsReadOK), nil
+
+}
+
+/*
+DcimPowerFeedsUpdate dcim power feeds update API
+*/
+func (a *Client) DcimPowerFeedsUpdate(params *DcimPowerFeedsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerFeedsUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-feeds_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/power-feeds/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerFeedsUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerFeedsUpdateOK), nil
 
 }
 
@@ -2871,7 +3509,7 @@ func (a *Client) DcimPowerOutletTemplatesCreate(params *DcimPowerOutletTemplates
 		PathPattern:        "/dcim/power-outlet-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2900,7 +3538,7 @@ func (a *Client) DcimPowerOutletTemplatesDelete(params *DcimPowerOutletTemplates
 		PathPattern:        "/dcim/power-outlet-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2915,7 +3553,7 @@ func (a *Client) DcimPowerOutletTemplatesDelete(params *DcimPowerOutletTemplates
 }
 
 /*
-DcimPowerOutletTemplatesList dcim power outlet templates list API
+DcimPowerOutletTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletTemplatesList(params *DcimPowerOutletTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2929,7 +3567,7 @@ func (a *Client) DcimPowerOutletTemplatesList(params *DcimPowerOutletTemplatesLi
 		PathPattern:        "/dcim/power-outlet-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2958,7 +3596,7 @@ func (a *Client) DcimPowerOutletTemplatesPartialUpdate(params *DcimPowerOutletTe
 		PathPattern:        "/dcim/power-outlet-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -2973,7 +3611,7 @@ func (a *Client) DcimPowerOutletTemplatesPartialUpdate(params *DcimPowerOutletTe
 }
 
 /*
-DcimPowerOutletTemplatesRead dcim power outlet templates read API
+DcimPowerOutletTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletTemplatesRead(params *DcimPowerOutletTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2987,7 +3625,7 @@ func (a *Client) DcimPowerOutletTemplatesRead(params *DcimPowerOutletTemplatesRe
 		PathPattern:        "/dcim/power-outlet-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3016,7 +3654,7 @@ func (a *Client) DcimPowerOutletTemplatesUpdate(params *DcimPowerOutletTemplates
 		PathPattern:        "/dcim/power-outlet-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3045,7 +3683,7 @@ func (a *Client) DcimPowerOutletsCreate(params *DcimPowerOutletsCreateParams, au
 		PathPattern:        "/dcim/power-outlets/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3074,7 +3712,7 @@ func (a *Client) DcimPowerOutletsDelete(params *DcimPowerOutletsDeleteParams, au
 		PathPattern:        "/dcim/power-outlets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3089,7 +3727,7 @@ func (a *Client) DcimPowerOutletsDelete(params *DcimPowerOutletsDeleteParams, au
 }
 
 /*
-DcimPowerOutletsList dcim power outlets list API
+DcimPowerOutletsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletsList(params *DcimPowerOutletsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3103,7 +3741,7 @@ func (a *Client) DcimPowerOutletsList(params *DcimPowerOutletsListParams, authIn
 		PathPattern:        "/dcim/power-outlets/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3132,7 +3770,7 @@ func (a *Client) DcimPowerOutletsPartialUpdate(params *DcimPowerOutletsPartialUp
 		PathPattern:        "/dcim/power-outlets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3147,7 +3785,7 @@ func (a *Client) DcimPowerOutletsPartialUpdate(params *DcimPowerOutletsPartialUp
 }
 
 /*
-DcimPowerOutletsRead dcim power outlets read API
+DcimPowerOutletsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3161,7 +3799,7 @@ func (a *Client) DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authIn
 		PathPattern:        "/dcim/power-outlets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3172,6 +3810,35 @@ func (a *Client) DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authIn
 		return nil, err
 	}
 	return result.(*DcimPowerOutletsReadOK), nil
+
+}
+
+/*
+DcimPowerOutletsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+*/
+func (a *Client) DcimPowerOutletsTrace(params *DcimPowerOutletsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsTraceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerOutletsTraceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-outlets_trace",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-outlets/{id}/trace/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerOutletsTraceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerOutletsTraceOK), nil
 
 }
 
@@ -3190,7 +3857,7 @@ func (a *Client) DcimPowerOutletsUpdate(params *DcimPowerOutletsUpdateParams, au
 		PathPattern:        "/dcim/power-outlets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerOutletsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3201,6 +3868,180 @@ func (a *Client) DcimPowerOutletsUpdate(params *DcimPowerOutletsUpdateParams, au
 		return nil, err
 	}
 	return result.(*DcimPowerOutletsUpdateOK), nil
+
+}
+
+/*
+DcimPowerPanelsCreate dcim power panels create API
+*/
+func (a *Client) DcimPowerPanelsCreate(params *DcimPowerPanelsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/power-panels/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsCreateCreated), nil
+
+}
+
+/*
+DcimPowerPanelsDelete dcim power panels delete API
+*/
+func (a *Client) DcimPowerPanelsDelete(params *DcimPowerPanelsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/power-panels/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsDeleteNoContent), nil
+
+}
+
+/*
+DcimPowerPanelsList Call to super to allow for caching
+*/
+func (a *Client) DcimPowerPanelsList(params *DcimPowerPanelsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-panels/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsListOK), nil
+
+}
+
+/*
+DcimPowerPanelsPartialUpdate dcim power panels partial update API
+*/
+func (a *Client) DcimPowerPanelsPartialUpdate(params *DcimPowerPanelsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/power-panels/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsPartialUpdateOK), nil
+
+}
+
+/*
+DcimPowerPanelsRead Call to super to allow for caching
+*/
+func (a *Client) DcimPowerPanelsRead(params *DcimPowerPanelsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-panels/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsReadOK), nil
+
+}
+
+/*
+DcimPowerPanelsUpdate dcim power panels update API
+*/
+func (a *Client) DcimPowerPanelsUpdate(params *DcimPowerPanelsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPanelsUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-panels_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/power-panels/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPanelsUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPanelsUpdateOK), nil
 
 }
 
@@ -3219,7 +4060,7 @@ func (a *Client) DcimPowerPortTemplatesCreate(params *DcimPowerPortTemplatesCrea
 		PathPattern:        "/dcim/power-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3248,7 +4089,7 @@ func (a *Client) DcimPowerPortTemplatesDelete(params *DcimPowerPortTemplatesDele
 		PathPattern:        "/dcim/power-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3263,7 +4104,7 @@ func (a *Client) DcimPowerPortTemplatesDelete(params *DcimPowerPortTemplatesDele
 }
 
 /*
-DcimPowerPortTemplatesList dcim power port templates list API
+DcimPowerPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortTemplatesList(params *DcimPowerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -3277,7 +4118,7 @@ func (a *Client) DcimPowerPortTemplatesList(params *DcimPowerPortTemplatesListPa
 		PathPattern:        "/dcim/power-port-templates/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3306,7 +4147,7 @@ func (a *Client) DcimPowerPortTemplatesPartialUpdate(params *DcimPowerPortTempla
 		PathPattern:        "/dcim/power-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3321,7 +4162,7 @@ func (a *Client) DcimPowerPortTemplatesPartialUpdate(params *DcimPowerPortTempla
 }
 
 /*
-DcimPowerPortTemplatesRead dcim power port templates read API
+DcimPowerPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortTemplatesRead(params *DcimPowerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3335,7 +4176,7 @@ func (a *Client) DcimPowerPortTemplatesRead(params *DcimPowerPortTemplatesReadPa
 		PathPattern:        "/dcim/power-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3364,7 +4205,7 @@ func (a *Client) DcimPowerPortTemplatesUpdate(params *DcimPowerPortTemplatesUpda
 		PathPattern:        "/dcim/power-port-templates/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortTemplatesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3393,7 +4234,7 @@ func (a *Client) DcimPowerPortsCreate(params *DcimPowerPortsCreateParams, authIn
 		PathPattern:        "/dcim/power-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3422,7 +4263,7 @@ func (a *Client) DcimPowerPortsDelete(params *DcimPowerPortsDeleteParams, authIn
 		PathPattern:        "/dcim/power-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3437,7 +4278,7 @@ func (a *Client) DcimPowerPortsDelete(params *DcimPowerPortsDeleteParams, authIn
 }
 
 /*
-DcimPowerPortsList dcim power ports list API
+DcimPowerPortsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortsList(params *DcimPowerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3451,7 +4292,7 @@ func (a *Client) DcimPowerPortsList(params *DcimPowerPortsListParams, authInfo r
 		PathPattern:        "/dcim/power-ports/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3480,7 +4321,7 @@ func (a *Client) DcimPowerPortsPartialUpdate(params *DcimPowerPortsPartialUpdate
 		PathPattern:        "/dcim/power-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3495,7 +4336,7 @@ func (a *Client) DcimPowerPortsPartialUpdate(params *DcimPowerPortsPartialUpdate
 }
 
 /*
-DcimPowerPortsRead dcim power ports read API
+DcimPowerPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3509,7 +4350,7 @@ func (a *Client) DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo r
 		PathPattern:        "/dcim/power-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3520,6 +4361,35 @@ func (a *Client) DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo r
 		return nil, err
 	}
 	return result.(*DcimPowerPortsReadOK), nil
+
+}
+
+/*
+DcimPowerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+*/
+func (a *Client) DcimPowerPortsTrace(params *DcimPowerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsTraceOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimPowerPortsTraceParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_power-ports_trace",
+		Method:             "GET",
+		PathPattern:        "/dcim/power-ports/{id}/trace/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimPowerPortsTraceReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimPowerPortsTraceOK), nil
 
 }
 
@@ -3538,7 +4408,7 @@ func (a *Client) DcimPowerPortsUpdate(params *DcimPowerPortsUpdateParams, authIn
 		PathPattern:        "/dcim/power-ports/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimPowerPortsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3567,7 +4437,7 @@ func (a *Client) DcimRackGroupsCreate(params *DcimRackGroupsCreateParams, authIn
 		PathPattern:        "/dcim/rack-groups/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3596,7 +4466,7 @@ func (a *Client) DcimRackGroupsDelete(params *DcimRackGroupsDeleteParams, authIn
 		PathPattern:        "/dcim/rack-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3611,7 +4481,7 @@ func (a *Client) DcimRackGroupsDelete(params *DcimRackGroupsDeleteParams, authIn
 }
 
 /*
-DcimRackGroupsList dcim rack groups list API
+DcimRackGroupsList Call to super to allow for caching
 */
 func (a *Client) DcimRackGroupsList(params *DcimRackGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3625,7 +4495,7 @@ func (a *Client) DcimRackGroupsList(params *DcimRackGroupsListParams, authInfo r
 		PathPattern:        "/dcim/rack-groups/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3654,7 +4524,7 @@ func (a *Client) DcimRackGroupsPartialUpdate(params *DcimRackGroupsPartialUpdate
 		PathPattern:        "/dcim/rack-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3669,7 +4539,7 @@ func (a *Client) DcimRackGroupsPartialUpdate(params *DcimRackGroupsPartialUpdate
 }
 
 /*
-DcimRackGroupsRead dcim rack groups read API
+DcimRackGroupsRead Call to super to allow for caching
 */
 func (a *Client) DcimRackGroupsRead(params *DcimRackGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3683,7 +4553,7 @@ func (a *Client) DcimRackGroupsRead(params *DcimRackGroupsReadParams, authInfo r
 		PathPattern:        "/dcim/rack-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3712,7 +4582,7 @@ func (a *Client) DcimRackGroupsUpdate(params *DcimRackGroupsUpdateParams, authIn
 		PathPattern:        "/dcim/rack-groups/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackGroupsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3741,7 +4611,7 @@ func (a *Client) DcimRackReservationsCreate(params *DcimRackReservationsCreatePa
 		PathPattern:        "/dcim/rack-reservations/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3770,7 +4640,7 @@ func (a *Client) DcimRackReservationsDelete(params *DcimRackReservationsDeletePa
 		PathPattern:        "/dcim/rack-reservations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3785,7 +4655,7 @@ func (a *Client) DcimRackReservationsDelete(params *DcimRackReservationsDeletePa
 }
 
 /*
-DcimRackReservationsList dcim rack reservations list API
+DcimRackReservationsList Call to super to allow for caching
 */
 func (a *Client) DcimRackReservationsList(params *DcimRackReservationsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3799,7 +4669,7 @@ func (a *Client) DcimRackReservationsList(params *DcimRackReservationsListParams
 		PathPattern:        "/dcim/rack-reservations/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3828,7 +4698,7 @@ func (a *Client) DcimRackReservationsPartialUpdate(params *DcimRackReservationsP
 		PathPattern:        "/dcim/rack-reservations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3843,7 +4713,7 @@ func (a *Client) DcimRackReservationsPartialUpdate(params *DcimRackReservationsP
 }
 
 /*
-DcimRackReservationsRead dcim rack reservations read API
+DcimRackReservationsRead Call to super to allow for caching
 */
 func (a *Client) DcimRackReservationsRead(params *DcimRackReservationsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3857,7 +4727,7 @@ func (a *Client) DcimRackReservationsRead(params *DcimRackReservationsReadParams
 		PathPattern:        "/dcim/rack-reservations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3886,7 +4756,7 @@ func (a *Client) DcimRackReservationsUpdate(params *DcimRackReservationsUpdatePa
 		PathPattern:        "/dcim/rack-reservations/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackReservationsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3915,7 +4785,7 @@ func (a *Client) DcimRackRolesCreate(params *DcimRackRolesCreateParams, authInfo
 		PathPattern:        "/dcim/rack-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3944,7 +4814,7 @@ func (a *Client) DcimRackRolesDelete(params *DcimRackRolesDeleteParams, authInfo
 		PathPattern:        "/dcim/rack-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -3959,7 +4829,7 @@ func (a *Client) DcimRackRolesDelete(params *DcimRackRolesDeleteParams, authInfo
 }
 
 /*
-DcimRackRolesList dcim rack roles list API
+DcimRackRolesList Call to super to allow for caching
 */
 func (a *Client) DcimRackRolesList(params *DcimRackRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -3973,7 +4843,7 @@ func (a *Client) DcimRackRolesList(params *DcimRackRolesListParams, authInfo run
 		PathPattern:        "/dcim/rack-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4002,7 +4872,7 @@ func (a *Client) DcimRackRolesPartialUpdate(params *DcimRackRolesPartialUpdatePa
 		PathPattern:        "/dcim/rack-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4017,7 +4887,7 @@ func (a *Client) DcimRackRolesPartialUpdate(params *DcimRackRolesPartialUpdatePa
 }
 
 /*
-DcimRackRolesRead dcim rack roles read API
+DcimRackRolesRead Call to super to allow for caching
 */
 func (a *Client) DcimRackRolesRead(params *DcimRackRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4031,7 +4901,7 @@ func (a *Client) DcimRackRolesRead(params *DcimRackRolesReadParams, authInfo run
 		PathPattern:        "/dcim/rack-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4060,7 +4930,7 @@ func (a *Client) DcimRackRolesUpdate(params *DcimRackRolesUpdateParams, authInfo
 		PathPattern:        "/dcim/rack-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRackRolesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4089,7 +4959,7 @@ func (a *Client) DcimRacksCreate(params *DcimRacksCreateParams, authInfo runtime
 		PathPattern:        "/dcim/racks/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4118,7 +4988,7 @@ func (a *Client) DcimRacksDelete(params *DcimRacksDeleteParams, authInfo runtime
 		PathPattern:        "/dcim/racks/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4133,7 +5003,7 @@ func (a *Client) DcimRacksDelete(params *DcimRacksDeleteParams, authInfo runtime
 }
 
 /*
-DcimRacksList dcim racks list API
+DcimRacksList Call to super to allow for caching
 */
 func (a *Client) DcimRacksList(params *DcimRacksListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksListOK, error) {
 	// TODO: Validate the params before sending
@@ -4147,7 +5017,7 @@ func (a *Client) DcimRacksList(params *DcimRacksListParams, authInfo runtime.Cli
 		PathPattern:        "/dcim/racks/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4176,7 +5046,7 @@ func (a *Client) DcimRacksPartialUpdate(params *DcimRacksPartialUpdateParams, au
 		PathPattern:        "/dcim/racks/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4191,7 +5061,7 @@ func (a *Client) DcimRacksPartialUpdate(params *DcimRacksPartialUpdateParams, au
 }
 
 /*
-DcimRacksRead dcim racks read API
+DcimRacksRead Call to super to allow for caching
 */
 func (a *Client) DcimRacksRead(params *DcimRacksReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4205,7 +5075,7 @@ func (a *Client) DcimRacksRead(params *DcimRacksReadParams, authInfo runtime.Cli
 		PathPattern:        "/dcim/racks/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4234,7 +5104,7 @@ func (a *Client) DcimRacksUnits(params *DcimRacksUnitsParams, authInfo runtime.C
 		PathPattern:        "/dcim/racks/{id}/units/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksUnitsReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4263,7 +5133,7 @@ func (a *Client) DcimRacksUpdate(params *DcimRacksUpdateParams, authInfo runtime
 		PathPattern:        "/dcim/racks/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRacksUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4274,6 +5144,354 @@ func (a *Client) DcimRacksUpdate(params *DcimRacksUpdateParams, authInfo runtime
 		return nil, err
 	}
 	return result.(*DcimRacksUpdateOK), nil
+
+}
+
+/*
+DcimRearPortTemplatesCreate dcim rear port templates create API
+*/
+func (a *Client) DcimRearPortTemplatesCreate(params *DcimRearPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/rear-port-templates/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesCreateCreated), nil
+
+}
+
+/*
+DcimRearPortTemplatesDelete dcim rear port templates delete API
+*/
+func (a *Client) DcimRearPortTemplatesDelete(params *DcimRearPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/rear-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesDeleteNoContent), nil
+
+}
+
+/*
+DcimRearPortTemplatesList Call to super to allow for caching
+*/
+func (a *Client) DcimRearPortTemplatesList(params *DcimRearPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/rear-port-templates/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesListOK), nil
+
+}
+
+/*
+DcimRearPortTemplatesPartialUpdate dcim rear port templates partial update API
+*/
+func (a *Client) DcimRearPortTemplatesPartialUpdate(params *DcimRearPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/rear-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesPartialUpdateOK), nil
+
+}
+
+/*
+DcimRearPortTemplatesRead Call to super to allow for caching
+*/
+func (a *Client) DcimRearPortTemplatesRead(params *DcimRearPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/rear-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesReadOK), nil
+
+}
+
+/*
+DcimRearPortTemplatesUpdate dcim rear port templates update API
+*/
+func (a *Client) DcimRearPortTemplatesUpdate(params *DcimRearPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortTemplatesUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-port-templates_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/rear-port-templates/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortTemplatesUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortTemplatesUpdateOK), nil
+
+}
+
+/*
+DcimRearPortsCreate dcim rear ports create API
+*/
+func (a *Client) DcimRearPortsCreate(params *DcimRearPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsCreateCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsCreateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_create",
+		Method:             "POST",
+		PathPattern:        "/dcim/rear-ports/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsCreateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsCreateCreated), nil
+
+}
+
+/*
+DcimRearPortsDelete dcim rear ports delete API
+*/
+func (a *Client) DcimRearPortsDelete(params *DcimRearPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsDeleteNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsDeleteParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_delete",
+		Method:             "DELETE",
+		PathPattern:        "/dcim/rear-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsDeleteNoContent), nil
+
+}
+
+/*
+DcimRearPortsList Call to super to allow for caching
+*/
+func (a *Client) DcimRearPortsList(params *DcimRearPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_list",
+		Method:             "GET",
+		PathPattern:        "/dcim/rear-ports/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsListReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsListOK), nil
+
+}
+
+/*
+DcimRearPortsPartialUpdate dcim rear ports partial update API
+*/
+func (a *Client) DcimRearPortsPartialUpdate(params *DcimRearPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsPartialUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsPartialUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_partial_update",
+		Method:             "PATCH",
+		PathPattern:        "/dcim/rear-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsPartialUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsPartialUpdateOK), nil
+
+}
+
+/*
+DcimRearPortsRead Call to super to allow for caching
+*/
+func (a *Client) DcimRearPortsRead(params *DcimRearPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsReadOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsReadParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_read",
+		Method:             "GET",
+		PathPattern:        "/dcim/rear-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsReadReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsReadOK), nil
+
+}
+
+/*
+DcimRearPortsUpdate dcim rear ports update API
+*/
+func (a *Client) DcimRearPortsUpdate(params *DcimRearPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsUpdateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDcimRearPortsUpdateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "dcim_rear-ports_update",
+		Method:             "PUT",
+		PathPattern:        "/dcim/rear-ports/{id}/",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DcimRearPortsUpdateReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DcimRearPortsUpdateOK), nil
 
 }
 
@@ -4292,7 +5510,7 @@ func (a *Client) DcimRegionsCreate(params *DcimRegionsCreateParams, authInfo run
 		PathPattern:        "/dcim/regions/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4321,7 +5539,7 @@ func (a *Client) DcimRegionsDelete(params *DcimRegionsDeleteParams, authInfo run
 		PathPattern:        "/dcim/regions/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4336,7 +5554,7 @@ func (a *Client) DcimRegionsDelete(params *DcimRegionsDeleteParams, authInfo run
 }
 
 /*
-DcimRegionsList dcim regions list API
+DcimRegionsList Call to super to allow for caching
 */
 func (a *Client) DcimRegionsList(params *DcimRegionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsListOK, error) {
 	// TODO: Validate the params before sending
@@ -4350,7 +5568,7 @@ func (a *Client) DcimRegionsList(params *DcimRegionsListParams, authInfo runtime
 		PathPattern:        "/dcim/regions/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4379,7 +5597,7 @@ func (a *Client) DcimRegionsPartialUpdate(params *DcimRegionsPartialUpdateParams
 		PathPattern:        "/dcim/regions/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4394,7 +5612,7 @@ func (a *Client) DcimRegionsPartialUpdate(params *DcimRegionsPartialUpdateParams
 }
 
 /*
-DcimRegionsRead dcim regions read API
+DcimRegionsRead Call to super to allow for caching
 */
 func (a *Client) DcimRegionsRead(params *DcimRegionsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4408,7 +5626,7 @@ func (a *Client) DcimRegionsRead(params *DcimRegionsReadParams, authInfo runtime
 		PathPattern:        "/dcim/regions/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4437,7 +5655,7 @@ func (a *Client) DcimRegionsUpdate(params *DcimRegionsUpdateParams, authInfo run
 		PathPattern:        "/dcim/regions/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimRegionsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4466,7 +5684,7 @@ func (a *Client) DcimSitesCreate(params *DcimSitesCreateParams, authInfo runtime
 		PathPattern:        "/dcim/sites/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4495,7 +5713,7 @@ func (a *Client) DcimSitesDelete(params *DcimSitesDeleteParams, authInfo runtime
 		PathPattern:        "/dcim/sites/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4524,7 +5742,7 @@ func (a *Client) DcimSitesGraphs(params *DcimSitesGraphsParams, authInfo runtime
 		PathPattern:        "/dcim/sites/{id}/graphs/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesGraphsReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4539,7 +5757,7 @@ func (a *Client) DcimSitesGraphs(params *DcimSitesGraphsParams, authInfo runtime
 }
 
 /*
-DcimSitesList dcim sites list API
+DcimSitesList Call to super to allow for caching
 */
 func (a *Client) DcimSitesList(params *DcimSitesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesListOK, error) {
 	// TODO: Validate the params before sending
@@ -4553,7 +5771,7 @@ func (a *Client) DcimSitesList(params *DcimSitesListParams, authInfo runtime.Cli
 		PathPattern:        "/dcim/sites/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4582,7 +5800,7 @@ func (a *Client) DcimSitesPartialUpdate(params *DcimSitesPartialUpdateParams, au
 		PathPattern:        "/dcim/sites/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4597,7 +5815,7 @@ func (a *Client) DcimSitesPartialUpdate(params *DcimSitesPartialUpdateParams, au
 }
 
 /*
-DcimSitesRead dcim sites read API
+DcimSitesRead Call to super to allow for caching
 */
 func (a *Client) DcimSitesRead(params *DcimSitesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4611,7 +5829,7 @@ func (a *Client) DcimSitesRead(params *DcimSitesReadParams, authInfo runtime.Cli
 		PathPattern:        "/dcim/sites/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4640,7 +5858,7 @@ func (a *Client) DcimSitesUpdate(params *DcimSitesUpdateParams, authInfo runtime
 		PathPattern:        "/dcim/sites/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimSitesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4669,7 +5887,7 @@ func (a *Client) DcimVirtualChassisCreate(params *DcimVirtualChassisCreateParams
 		PathPattern:        "/dcim/virtual-chassis/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4698,7 +5916,7 @@ func (a *Client) DcimVirtualChassisDelete(params *DcimVirtualChassisDeleteParams
 		PathPattern:        "/dcim/virtual-chassis/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4713,7 +5931,7 @@ func (a *Client) DcimVirtualChassisDelete(params *DcimVirtualChassisDeleteParams
 }
 
 /*
-DcimVirtualChassisList dcim virtual chassis list API
+DcimVirtualChassisList Call to super to allow for caching
 */
 func (a *Client) DcimVirtualChassisList(params *DcimVirtualChassisListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisListOK, error) {
 	// TODO: Validate the params before sending
@@ -4727,7 +5945,7 @@ func (a *Client) DcimVirtualChassisList(params *DcimVirtualChassisListParams, au
 		PathPattern:        "/dcim/virtual-chassis/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4756,7 +5974,7 @@ func (a *Client) DcimVirtualChassisPartialUpdate(params *DcimVirtualChassisParti
 		PathPattern:        "/dcim/virtual-chassis/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4771,7 +5989,7 @@ func (a *Client) DcimVirtualChassisPartialUpdate(params *DcimVirtualChassisParti
 }
 
 /*
-DcimVirtualChassisRead dcim virtual chassis read API
+DcimVirtualChassisRead Call to super to allow for caching
 */
 func (a *Client) DcimVirtualChassisRead(params *DcimVirtualChassisReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4785,7 +6003,7 @@ func (a *Client) DcimVirtualChassisRead(params *DcimVirtualChassisReadParams, au
 		PathPattern:        "/dcim/virtual-chassis/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -4814,7 +6032,7 @@ func (a *Client) DcimVirtualChassisUpdate(params *DcimVirtualChassisUpdateParams
 		PathPattern:        "/dcim/virtual-chassis/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &DcimVirtualChassisUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,

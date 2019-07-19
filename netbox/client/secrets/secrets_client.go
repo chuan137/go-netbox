@@ -53,7 +53,7 @@ func (a *Client) SecretsChoicesList(params *SecretsChoicesListParams, authInfo r
 		PathPattern:        "/secrets/_choices/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsChoicesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -82,7 +82,7 @@ func (a *Client) SecretsChoicesRead(params *SecretsChoicesReadParams, authInfo r
 		PathPattern:        "/secrets/_choices/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsChoicesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -97,9 +97,9 @@ func (a *Client) SecretsChoicesRead(params *SecretsChoicesReadParams, authInfo r
 }
 
 /*
-SecretsGenerateRsaKeyPairList This endpoint can be used to generate a new RSA key pair. The keys are returned in PEM format.
+SecretsGenerateRsaKeyPairList this endpoint can be used to generate a new r s a key pair the keys are returned in p e m format
 
-    {
+{
         "public_key": "<public key>",
         "private_key": "<private key>"
     }
@@ -116,7 +116,7 @@ func (a *Client) SecretsGenerateRsaKeyPairList(params *SecretsGenerateRsaKeyPair
 		PathPattern:        "/secrets/generate-rsa-key-pair/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsGenerateRsaKeyPairListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -158,7 +158,7 @@ func (a *Client) SecretsGetSessionKeyCreate(params *SecretsGetSessionKeyCreatePa
 		PathPattern:        "/secrets/get-session-key/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsGetSessionKeyCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -187,7 +187,7 @@ func (a *Client) SecretsSecretRolesCreate(params *SecretsSecretRolesCreateParams
 		PathPattern:        "/secrets/secret-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -216,7 +216,7 @@ func (a *Client) SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams
 		PathPattern:        "/secrets/secret-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -231,7 +231,7 @@ func (a *Client) SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams
 }
 
 /*
-SecretsSecretRolesList secrets secret roles list API
+SecretsSecretRolesList Call to super to allow for caching
 */
 func (a *Client) SecretsSecretRolesList(params *SecretsSecretRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -245,7 +245,7 @@ func (a *Client) SecretsSecretRolesList(params *SecretsSecretRolesListParams, au
 		PathPattern:        "/secrets/secret-roles/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -274,7 +274,7 @@ func (a *Client) SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesParti
 		PathPattern:        "/secrets/secret-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -289,7 +289,7 @@ func (a *Client) SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesParti
 }
 
 /*
-SecretsSecretRolesRead secrets secret roles read API
+SecretsSecretRolesRead Call to super to allow for caching
 */
 func (a *Client) SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -303,7 +303,7 @@ func (a *Client) SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, au
 		PathPattern:        "/secrets/secret-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -332,7 +332,7 @@ func (a *Client) SecretsSecretRolesUpdate(params *SecretsSecretRolesUpdateParams
 		PathPattern:        "/secrets/secret-roles/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretRolesUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -361,7 +361,7 @@ func (a *Client) SecretsSecretsCreate(params *SecretsSecretsCreateParams, authIn
 		PathPattern:        "/secrets/secrets/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsCreateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -390,7 +390,7 @@ func (a *Client) SecretsSecretsDelete(params *SecretsSecretsDeleteParams, authIn
 		PathPattern:        "/secrets/secrets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsDeleteReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -419,7 +419,7 @@ func (a *Client) SecretsSecretsList(params *SecretsSecretsListParams, authInfo r
 		PathPattern:        "/secrets/secrets/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsListReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -448,7 +448,7 @@ func (a *Client) SecretsSecretsPartialUpdate(params *SecretsSecretsPartialUpdate
 		PathPattern:        "/secrets/secrets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsPartialUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -477,7 +477,7 @@ func (a *Client) SecretsSecretsRead(params *SecretsSecretsReadParams, authInfo r
 		PathPattern:        "/secrets/secrets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsReadReader{formats: a.formats},
 		AuthInfo:           authInfo,
@@ -506,7 +506,7 @@ func (a *Client) SecretsSecretsUpdate(params *SecretsSecretsUpdateParams, authIn
 		PathPattern:        "/secrets/secrets/{id}/",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
+		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &SecretsSecretsUpdateReader{formats: a.formats},
 		AuthInfo:           authInfo,
