@@ -81,9 +81,6 @@ type DeviceWithConfigContext struct {
 	// Format: date-time
 	LastUpdated strfmt.DateTime `json:"last_updated,omitempty"`
 
-	// Local context data
-	LocalContextData *string `json:"local_context_data,omitempty"`
-
 	// Name
 	// Max Length: 64
 	Name *string `json:"name,omitempty"`

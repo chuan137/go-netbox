@@ -17061,11 +17061,6 @@
           "title": "Comments",
           "type": "string"
         },
-        "local_context_data": {
-          "title": "Local context data",
-          "type": "string",
-          "x-nullable": true
-        },
         "tags": {
           "type": "array",
           "items": {
@@ -17955,11 +17950,6 @@
           "title": "Comments",
           "type": "string"
         },
-        "local_context_data": {
-          "title": "Local context data",
-          "type": "string",
-          "x-nullable": true
-        },
         "tags": {
           "type": "array",
           "items": {
@@ -18131,11 +18121,6 @@
         "comments": {
           "title": "Comments",
           "type": "string"
-        },
-        "local_context_data": {
-          "title": "Local context data",
-          "type": "string",
-          "x-nullable": true
         },
         "tags": {
           "type": "array",
@@ -24811,11 +24796,6 @@
           "title": "Comments",
           "type": "string"
         },
-        "local_context_data": {
-          "title": "Local context data",
-          "type": "string",
-          "x-nullable": true
-        },
         "tags": {
           "type": "array",
           "items": {
@@ -24939,11 +24919,6 @@
         "comments": {
           "title": "Comments",
           "type": "string"
-        },
-        "local_context_data": {
-          "title": "Local context data",
-          "type": "string",
-          "x-nullable": true
         },
         "tags": {
           "type": "array",

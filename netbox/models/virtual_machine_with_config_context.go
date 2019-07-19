@@ -66,9 +66,6 @@ type VirtualMachineWithConfigContext struct {
 	// Format: date-time
 	LastUpdated strfmt.DateTime `json:"last_updated,omitempty"`
 
-	// Local context data
-	LocalContextData *string `json:"local_context_data,omitempty"`
-
 	// Memory (MB)
 	// Maximum: 2.147483647e+09
 	// Minimum: 0
