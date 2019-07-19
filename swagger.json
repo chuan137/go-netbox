@@ -3674,7 +3674,7 @@
                 "results": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/DeviceWithConfigContext"
+                    "$ref": "#/definitions/Device"
                   }
                 }
               }
