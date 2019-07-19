@@ -17,10 +17,9 @@ package netbox
 import (
 	"fmt"
 
-	"github.com/go-openapi/strfmt"
+	"github.com/chuan137/go-netbox/netbox/client"
 	runtimeclient "github.com/go-openapi/runtime/client"
-
-	"github.com/digitalocean/go-netbox/netbox/client"
+	"github.com/go-openapi/strfmt"
 )
 
 // NewNetboxAt returns a client which will connect to the given
